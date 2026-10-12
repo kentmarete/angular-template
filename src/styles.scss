@@ -1,0 +1,52 @@
+:root {
+  --bg: #f6f7f9; --surface: #fff; --surface-2: #f1f3f6; --border: #e4e7ec;
+  --text: #17191f; --muted: #6b7280; --primary: #1b84ff; --primary-soft: #e8f2ff;
+  --green: #17a34a; --green-soft: #e3f6ea; --red: #e5484d; --red-soft: #fdeaeb;
+  --amber: #f59e0b; --violet: #7c5cfc; --teal: #14b8a6;
+  --radius: 12px; --shadow: 0 1px 2px rgb(16 24 40 / .04);
+}
+:root[data-theme='light'] { color-scheme: light; }
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #0b0c0f; --surface: #121317; --surface-2: #1a1c22; --border: #24262d;
+  --text: #ecedf0; --muted: #8b909c; --primary: #3b94ff; --primary-soft: #11233b;
+  --green: #3ddc84; --green-soft: #12281c; --red: #ff6369; --red-soft: #2d1517;
+  --shadow: none;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+body {
+  background: var(--bg); color: var(--text); font: 14px/1.5 Inter, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, p { margin: 0; }
+button { font: inherit; color: inherit; cursor: pointer; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
+.muted { color: var(--muted); }
+.up { color: var(--green); } .down { color: var(--red); }
+
+/* Tooltip bubble (created by the appTooltip directive in <body>) */
+.app-tooltip {
+  position: fixed; z-index: 100; max-width: 240px; padding: 6px 10px; border-radius: 6px; pointer-events: none;
+  background: var(--text); color: var(--bg); font-size: 12px; font-weight: 500; line-height: 1.4;
+  opacity: 0; transition: opacity .12s;
+}
+.app-tooltip.on { opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .app-tooltip { transition: none; } }
+
+@media print {
+  aside, .main > header, app-drawer, .bar { display: none !important; }
+  .shell { display: block !important; } main { padding: 0 !important; max-width: none !important; }
+  body { background: #fff !important; }
+  .paper { box-shadow: none !important; border-radius: 0 !important; padding: 0 !important; }
+}
+
+/* Mobile helpers */
+.show-sm { display: none; }
+@media (max-width: 640px) {
+  .hide-sm { display: none !important; }
+  .show-sm { display: block; }
+  table th, table td { padding-left: 10px !important; padding-right: 10px !important; }
+  .badge, .chips button, .btn, td .role, .custom, .num { white-space: nowrap; }
+  .chips { max-width: 100%; overflow-x: auto; scrollbar-width: none; }
+}
