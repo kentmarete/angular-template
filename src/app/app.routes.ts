@@ -25,12 +25,20 @@ import { Landing } from './pages/landing';
 import { Contact } from './pages/contact';
 import { Forms } from './pages/forms';
 import { Transactions } from './pages/transactions';
+import { TicketPage } from './pages/ticket';
+import { Teams } from './pages/teams';
+import { TaskPage } from './pages/task';
 
 export const routes: Routes = [
   { path: '', pathMatch: 'full', component: Landing, title: 'Fin — Manage your finances with clarity' },
   { path: 'contact', component: Contact, title: 'Contact us · Fin' },
   { path: 'overview', component: Overview, title: 'Overview · Fin' },
   { path: 'transactions', component: Transactions, title: 'Transactions · Fin' },
+  { path: 'tickets', pathMatch: 'full', redirectTo: 'tickets/4210' },
+  { path: 'tickets/:id', component: TicketPage, title: 'Ticket · Fin' },
+  { path: 'teams', component: Teams, title: 'Teams · Fin' },
+  { path: 'tasks', pathMatch: 'full', redirectTo: 'tasks/FIN-36' },
+  { path: 'tasks/:id', component: TaskPage, title: 'Task · Fin' },
   { path: 'forms', component: Forms, title: 'Form elements · Fin' },
   { path: 'account', component: Account, title: 'My account · Fin' },
   { path: 'tables', component: Tables, title: 'Data tables · Fin' },
