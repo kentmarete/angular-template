@@ -21,6 +21,8 @@ body {
 }
 h1, h2, h3, p { margin: 0; }
 button { font: inherit; color: inherit; cursor: pointer; }
+/* Routed pages: centre in the content area, capped by each page's own max-width. */
+router-outlet + * { display: block; width: 100%; margin-inline: auto; min-width: 0; }
 .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
 .muted { color: var(--muted); }
 .up { color: var(--green); } .down { color: var(--red); }

@@ -66,8 +66,8 @@ import { DataService } from '../core/data';
           @for (t of recent(); track t.id) {
             <tr>
               <td><strong>{{ t.name }}</strong><br><small class="muted">{{ t.category }}</small></td>
-              <td class="muted">{{ t.date | date:'MMM d' }}</td>
-              <td><span class="badge" [class.pending]="t.status === 'Pending'">{{ t.status }}</span></td>
+              <td class="muted hide-sm">{{ t.date | date:'MMM d' }}</td>
+              <td class="hide-sm"><span class="badge" [class.pending]="t.status === 'Pending'">{{ t.status }}</span></td>
               <td class="amt" [class]="t.amount > 0 ? 'amt up' : 'amt'">{{ t.amount | currency }}</td>
             </tr>
           }
@@ -95,6 +95,7 @@ import { DataService } from '../core/data';
     table { width: 100%; border-collapse: collapse; }
     td { padding: 12px 0; border-top: 1px solid var(--border); }
     tr:first-child td { border-top: 0; }
+    @media (max-width: 560px) { .hide-sm { display: none; } }
     .amt { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; }
     .badge { background: var(--green-soft); color: var(--green); padding: 2px 10px; border-radius: 99px; font-size: 12px; }
     .badge.pending { background: var(--primary-soft); color: var(--primary); }
